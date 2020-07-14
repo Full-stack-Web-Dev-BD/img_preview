@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img</title>
+    <style>
+        #select{
+            display: none;
+        }
+        #img{
+            
+            vertical-align: middle;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input type="file"  id="select" onchange="setImg(event)">
+    <img src="./download.png" id="img" title="Select a img">
+    
+    <script>
+        const select=document.getElementById('select')
+        const img=document.getElementById('img')
+        img.addEventListener('click',()=>{
+            select.click()
+        })
+        function setImg(event){
+            if(event.target.files[0]){
+                img.src=URL.createObjectURL(event.target.files[0])
+                console.log(event.target.files[0])
+            }
+        }
+    </script>
+</body>
+</html>
